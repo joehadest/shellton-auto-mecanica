@@ -21,6 +21,7 @@ export function PaginaListagem({
 
   return (
     <div className="pagina-listagem">
+      <h1 className="pagina-listagem-titulo pagina-listagem-titulo--sr">{titulo}</h1>
       <div className="pagina-listagem-toolbar">
         <div className="pagina-listagem-toolbar-esq">
           <label className="pagina-listagem-checkbox">
