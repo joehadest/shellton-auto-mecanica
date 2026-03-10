@@ -4,7 +4,10 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-dotenv.config({ path: path.join(__dirname, '..', '.env') })
+/* Só carrega .env local se DATABASE_URL não existir (ex.: Vercel injeta env) */
+if (!process.env.DATABASE_URL) {
+  dotenv.config({ path: path.join(__dirname, '..', '.env') })
+}
 
 const { Pool } = pg
 
