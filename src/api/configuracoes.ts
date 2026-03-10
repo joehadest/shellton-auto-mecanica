@@ -1,4 +1,4 @@
-import { MOCK_PASS_KEY, initMockCredentials } from './auth'
+import { MOCK_PASS_KEY, initMockCredentials, getStoredUser } from './auth'
 
 export interface ConfiguracoesEmpresa {
   nome: string
@@ -19,12 +19,42 @@ export interface Configuracoes {
   usuario: ConfiguracoesUsuario
 }
 
+/** Resultado de obterConfiguracoes; fallback indica que a API não respondeu e foram usados dados locais */
+export interface ConfiguracoesResultado extends Configuracoes {
+  fallback?: boolean
+}
+
 const API = '/api/configuracoes'
 
-export async function obterConfiguracoes(): Promise<Configuracoes> {
-  const res = await fetch(API)
-  if (!res.ok) throw new Error('Falha ao carregar configurações')
-  return res.json()
+const emptyEmpresa: ConfiguracoesEmpresa = {
+  nome: '',
+  cnpj: '',
+  telefone: '',
+  email: '',
+  endereco: '',
+  assinaturaBase64: undefined,
+}
+
+const emptyUsuario: ConfiguracoesUsuario = { nome: '', email: '' }
+
+function getFallbackConfig(): ConfiguracoesResultado {
+  const stored = getStoredUser()
+  return {
+    empresa: emptyEmpresa,
+    usuario: stored ? { nome: stored.nome ?? '', email: stored.email ?? '' } : emptyUsuario,
+    fallback: true,
+  }
+}
+
+export async function obterConfiguracoes(): Promise<ConfiguracoesResultado> {
+  try {
+    const res = await fetch(API)
+    if (!res.ok) return getFallbackConfig()
+    const data = (await res.json()) as Configuracoes
+    return { ...data, fallback: false }
+  } catch {
+    return getFallbackConfig()
+  }
 }
 
 export async function salvarConfiguracoes(dados: Configuracoes): Promise<Configuracoes> {

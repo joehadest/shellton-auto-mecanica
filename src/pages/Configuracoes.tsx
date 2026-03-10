@@ -34,9 +34,12 @@ export function Configuracoes() {
   const [empresa, setEmpresa] = useState<ConfiguracoesEmpresa>(emptyEmpresa)
   const [usuario, setUsuario] = useState<ConfiguracoesUsuario>(emptyUsuario)
 
+  const [avisoServidor, setAvisoServidor] = useState<string | null>(null)
+
   useEffect(() => {
     setCarregando(true)
     setErro(null)
+    setAvisoServidor(null)
     obterConfiguracoes()
       .then((dados) => {
         setEmpresa(dados.empresa ?? emptyEmpresa)
@@ -50,15 +53,15 @@ export function Configuracoes() {
         } else {
           setUsuario(dados.usuario ?? emptyUsuario)
         }
-      })
-      .catch((e) => {
-        setErro(e instanceof Error ? e.message : 'Erro ao carregar')
-        // Mesmo sem backend, mostrar perfil do localStorage
-        const stored = getStoredUser()
-        if (stored) {
-          setUsuario({ nome: stored.nome ?? '', email: stored.email ?? '' })
-          setEmpresa(emptyEmpresa)
+        if (dados.fallback) {
+          setAvisoServidor('Servidor indisponível. A editar com dados locais.')
         }
+      })
+      .catch(() => {
+        setEmpresa(emptyEmpresa)
+        const stored = getStoredUser()
+        setUsuario(stored ? { nome: stored.nome ?? '', email: stored.email ?? '' } : emptyUsuario)
+        setAvisoServidor('Servidor indisponível. A editar com dados locais.')
       })
       .finally(() => setCarregando(false))
   }, [])
@@ -160,6 +163,7 @@ export function Configuracoes() {
       <h1 className="configuracoes-titulo">Configurações</h1>
 
       {erro && <p className="configuracoes-erro" role="alert">{erro}</p>}
+      {avisoServidor && <p className="configuracoes-aviso" role="status">{avisoServidor}</p>}
       {sucesso && <p className="configuracoes-sucesso" role="status">{sucesso}</p>}
 
       <form onSubmit={handleSubmit} className="configuracoes-form" noValidate>
