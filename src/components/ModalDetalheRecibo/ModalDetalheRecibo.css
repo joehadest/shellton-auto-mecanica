@@ -1,0 +1,269 @@
+.modal-recibo-detalhe-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 200;
+  padding: 1rem;
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal-recibo-detalhe {
+  background: #fff;
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
+  max-width: 520px;
+  width: 100%;
+  margin: 0.5rem auto 2rem;
+}
+
+.modal-recibo-detalhe--estilo {
+  padding: 0;
+  overflow: visible;
+}
+
+.modal-recibo-detalhe-empresa {
+  padding: 1.25rem 1.5rem 0.5rem;
+}
+
+.modal-recibo-detalhe-empresa-nome {
+  display: block;
+  font-size: 1.25rem;
+  color: #111827;
+  margin-bottom: 0.35rem;
+}
+
+.modal-recibo-detalhe-empresa-info {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.modal-recibo-detalhe-hr {
+  border: none;
+  border-top: 2px solid #111827;
+  margin: 0.75rem 1.5rem;
+}
+
+.modal-recibo-detalhe-hr-fino {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 0.25rem 0;
+}
+
+.modal-recibo-detalhe-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem 1.5rem;
+  gap: 1rem;
+}
+
+.modal-recibo-detalhe-label {
+  margin: 0 0 0.2rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.modal-recibo-detalhe-cliente {
+  margin: 0;
+  font-weight: 500;
+  color: #111827;
+}
+
+.modal-recibo-detalhe-numdata {
+  text-align: right;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.modal-recibo-detalhe-numdata p {
+  margin: 0.2rem 0;
+}
+
+/* Wrapper para rolagem horizontal das tabelas no mobile */
+.modal-recibo-detalhe-tabela-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 0.5rem;
+}
+
+.modal-recibo-detalhe-tabela {
+  width: 100%;
+  min-width: 320px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.modal-recibo-detalhe-tabela th,
+.modal-recibo-detalhe-tabela td {
+  padding: 0.4rem 1rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.modal-recibo-detalhe-tabela th {
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+}
+
+.modal-recibo-detalhe-tabela .th-center {
+  text-align: center;
+}
+
+.modal-recibo-detalhe-tabela .th-right {
+  text-align: right;
+}
+
+.modal-recibo-detalhe-totais {
+  padding: 0.5rem 1.5rem;
+  text-align: right;
+}
+
+.modal-recibo-detalhe-linha-total {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  align-items: center;
+  font-size: 0.95rem;
+  padding: 0.2rem 0;
+}
+
+.modal-recibo-detalhe-linha-total--destaque {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.modal-recibo-detalhe-assinatura {
+  padding: 1.5rem 1.5rem 0.5rem;
+  text-align: center;
+}
+
+.modal-recibo-detalhe-assinatura-img {
+  max-height: 60px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 0.35rem;
+}
+
+.modal-recibo-detalhe-assinatura-linha {
+  width: 200px;
+  height: 0;
+  border-top: 1px solid #111827;
+  margin: 0 auto 0.25rem;
+}
+
+.modal-recibo-detalhe-assinatura-label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.modal-recibo-detalhe-acoes {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  padding: 1rem 1.5rem 1.25rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.modal-recibo-detalhe-btn-sec {
+  padding: 0.55rem 1rem;
+  min-height: 44px;
+  background: #f1f5f9;
+  color: #475569;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.modal-recibo-detalhe-btn-sec:hover {
+  background: #e2e8f0;
+}
+
+.modal-recibo-detalhe-btn-pdf {
+  padding: 0.55rem 1.25rem;
+  min-height: 44px;
+  background: #1e3a5f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.modal-recibo-detalhe-btn-pdf:hover {
+  background: #16304a;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .modal-recibo-detalhe {
+    width: 95vw;
+    max-width: 95vw;
+    max-height: 90dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  .modal-recibo-detalhe-tabela {
+    min-width: 380px;
+  }
+}
+
+/* Smartphone: modal quase tela cheia, scroll interno, botões empilhados */
+@media (max-width: 480px) {
+  .modal-recibo-detalhe-overlay {
+    padding: 0.5rem;
+  }
+  .modal-recibo-detalhe {
+    width: 95vw;
+    max-width: 95vw;
+    max-height: 90dvh;
+    margin: 0.5rem auto 1.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  .modal-recibo-detalhe-empresa,
+  .modal-recibo-detalhe-topo,
+  .modal-recibo-detalhe-totais {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .modal-recibo-detalhe-hr {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .modal-recibo-detalhe-tabela-wrapper {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .modal-recibo-detalhe-tabela th,
+  .modal-recibo-detalhe-tabela td {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 0.85rem;
+  }
+  .modal-recibo-detalhe-acoes {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .modal-recibo-detalhe-btn-sec,
+  .modal-recibo-detalhe-btn-pdf {
+    width: 100%;
+    min-height: 44px;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}

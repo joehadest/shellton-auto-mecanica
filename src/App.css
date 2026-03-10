@@ -1,0 +1,60 @@
+/* Estilos globais do app */
+
+.protected-route-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  padding: 1rem;
+  color: var(--color-text-muted);
+}
+
+.painel-page,
+.placeholder-page {
+  padding: 0.5rem 0;
+}
+
+.painel-page p,
+.placeholder-page p {
+  margin: 0.5rem 0;
+  color: var(--color-text-muted, #374151);
+}
+
+.texto-secundario {
+  color: var(--color-text-muted) !important;
+  font-size: 0.95rem;
+}
+
+.placeholder-page h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+
+.recibos-status {
+  padding: 1rem;
+  color: var(--color-text-muted);
+}
+
+.recibos-erro {
+  color: var(--color-danger);
+}
+
+.recibos-erro button {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  min-height: var(--touch-min, 44px);
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .painel-page,
+  .placeholder-page {
+    padding: 0.25rem 0;
+  }
+}

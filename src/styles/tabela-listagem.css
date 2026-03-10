@@ -1,0 +1,75 @@
+/* Wrapper obrigatório para rolagem horizontal em tabelas com muitas colunas */
+.tabela-listagem-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border-subtle, #e2e8f0);
+  border-radius: var(--radius-md, 8px);
+  background: #fff;
+  width: 100%;
+  min-width: 0;
+}
+
+.tabela-listagem {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 320px;
+}
+
+.tabela-listagem th,
+.tabela-listagem td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tabela-listagem th {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #475569;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.tabela-listagem tbody tr:hover {
+  background: #f8fafc;
+}
+
+.tabela-listagem tbody tr {
+  cursor: pointer;
+}
+
+.tabela-listagem .valor {
+  font-weight: 600;
+  color: var(--color-success, #059669);
+}
+
+.tabela-listagem .status {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm, 6px);
+  font-weight: 500;
+}
+
+.tabela-listagem .status--rascunho,
+.tabela-listagem .status--aberta { background: #fef3c7; color: #92400e; }
+.tabela-listagem .status--enviado,
+.tabela-listagem .status--em_andamento { background: #dbeafe; color: #1e40af; }
+.tabela-listagem .status--aprovado,
+.tabela-listagem .status--concluida { background: #d1fae5; color: #065f46; }
+
+@media (max-width: 768px) {
+  .tabela-listagem {
+    min-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabela-listagem th,
+  .tabela-listagem td {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,200 @@
+.painel-page {
+  padding: 0 0 2rem;
+}
+
+.painel-loading,
+.painel-erro {
+  padding: 1rem;
+  color: var(--color-text-muted);
+}
+
+.painel-erro {
+  color: var(--color-danger);
+}
+
+.painel-titulo {
+  margin: 0 0 1.25rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.painel-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.painel-card {
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s, transform 0.1s;
+}
+
+.painel-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.painel-card--destaque {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #2d4a6f 100%);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.painel-card--destaque .painel-card-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.painel-card-label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.painel-card-valor {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.painel-card-valor--moeda {
+  font-size: 1.2rem;
+}
+
+.painel-card--destaque .painel-card-valor {
+  color: #fff;
+}
+
+.painel-ultimos {
+  margin-top: 0.5rem;
+}
+
+.painel-ultimos-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.painel-ultimos-titulo {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.painel-ultimos-link {
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.35rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.painel-ultimos-link:hover {
+  text-decoration: underline;
+  background: rgba(30, 58, 95, 0.06);
+}
+
+.painel-vazio {
+  color: var(--color-text-muted);
+  padding: 1.5rem;
+  margin: 0;
+  background: #f8fafc;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-subtle);
+}
+
+/* Tabela "Últimos recibos": wrapper com rolagem horizontal */
+.painel-tabela-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: #fff;
+  width: 100%;
+  min-width: 0;
+}
+
+.painel-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 320px;
+}
+
+.painel-tabela th,
+.painel-tabela td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.painel-tabela th {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #475569;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.painel-tabela tbody tr:hover {
+  background: #f8fafc;
+}
+
+.painel-tabela-valor {
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+/* Tablet: 2 colunas de cards */
+@media (max-width: 768px) {
+  .painel-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .painel-card {
+    padding: 1rem;
+  }
+  .painel-card-valor {
+    font-size: 1.2rem;
+  }
+  .painel-tabela {
+    min-width: 400px;
+  }
+  .painel-tabela th,
+  .painel-tabela td {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Smartphone: 1 coluna de cards */
+@media (max-width: 480px) {
+  .painel-cards {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .painel-card {
+    padding: 1rem;
+  }
+  .painel-card-valor {
+    font-size: 1.2rem;
+  }
+  .painel-tabela th,
+  .painel-tabela td {
+    padding: 0.5rem 0.65rem;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,309 @@
+.modal-recibo-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 1rem;
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal-recibo {
+  background: #fff;
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
+  max-width: 420px;
+  width: 100%;
+  max-height: min(90vh, 90dvh);
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal-recibo--wide {
+  max-width: 640px;
+}
+
+.modal-recibo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-recibo-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.modal-recibo-fechar {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0.25rem;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.modal-recibo-fechar:hover {
+  background: #f1f5f9;
+  color: #111827;
+}
+
+.modal-recibo-form {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-recibo-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.modal-recibo-form input {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-recibo-form input:focus {
+  outline: none;
+  border-color: #1e3a5f;
+  box-shadow: 0 0 0 2px rgba(30, 58, 95, 0.15);
+}
+
+.modal-recibo-erro {
+  margin: 0;
+  padding: 0.5rem 0;
+  color: #b91c1c;
+  font-size: 0.9rem;
+}
+
+.modal-recibo-acoes {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.modal-recibo-btn-cancelar {
+  padding: 0.55rem 1rem;
+  min-height: 44px;
+  background: #f1f5f9;
+  color: #475569;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.modal-recibo-btn-cancelar:hover {
+  background: #e2e8f0;
+}
+
+.modal-recibo-btn-salvar {
+  padding: 0.55rem 1.25rem;
+  min-height: 44px;
+  background: #1e3a5f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.modal-recibo-btn-salvar:hover:not(:disabled) {
+  background: #16304a;
+}
+
+.modal-recibo-btn-salvar:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.modal-recibo-campos-topo {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 1rem;
+}
+
+.modal-recibo-secao {
+  margin-top: 1rem;
+}
+
+.modal-recibo-secao-titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.modal-recibo-btn-add {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.85rem;
+  min-height: 44px;
+  background: #e0f2fe;
+  color: #0369a1;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.modal-recibo-btn-add:hover {
+  background: #bae6fd;
+}
+
+.modal-recibo-tabela-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -0.5rem;
+}
+
+.modal-recibo-tabela {
+  width: 100%;
+  min-width: 320px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.modal-recibo-tabela th,
+.modal-recibo-tabela td {
+  padding: 0.4rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.modal-recibo-tabela th {
+  font-weight: 600;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.modal-recibo-tabela input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+.modal-recibo-tabela input:focus {
+  outline: none;
+  border-color: #1e3a5f;
+}
+
+.modal-recibo-btn-rem {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  min-height: 44px;
+  background: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-recibo-btn-rem:hover {
+  background: #fecaca;
+}
+
+.modal-recibo-valor-simples {
+  margin-top: 1rem;
+}
+
+.modal-recibo-total {
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.modal-recibo-total strong {
+  color: #059669;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .modal-recibo-overlay {
+    align-items: flex-start;
+  }
+  .modal-recibo,
+  .modal-recibo--wide {
+    width: 95vw;
+    max-width: 95vw;
+    max-height: 90dvh;
+  }
+  .modal-recibo-campos-topo {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-recibo-overlay {
+    padding: 0.5rem;
+    align-items: flex-start;
+  }
+  .modal-recibo,
+  .modal-recibo--wide {
+    width: 95vw;
+    max-width: 95vw;
+    max-height: 90dvh;
+    margin: 0.5rem auto 2rem;
+  }
+  .modal-recibo-header {
+    padding: 1rem;
+  }
+  .modal-recibo-form {
+    padding: 1rem;
+  }
+  .modal-recibo-form input {
+    min-height: 44px;
+    width: 100%;
+  }
+  .modal-recibo-btn-add,
+  .modal-recibo-btn-rem {
+    min-height: 44px;
+  }
+  .modal-recibo-acoes {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .modal-recibo-btn-cancelar,
+  .modal-recibo-btn-salvar {
+    width: 100%;
+    min-height: 44px;
+    flex: 1 1 auto;
+  }
+}

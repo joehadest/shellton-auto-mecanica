@@ -1,0 +1,273 @@
+.lista-recibos {
+  position: relative;
+  min-height: 200px;
+}
+
+.lista-recibos-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 0.5rem;
+}
+
+.lista-recibos-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.lista-recibos-checkbox input {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.lista-recibos-menu-btn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  color: #6b7280;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lista-recibos-header {
+  display: grid;
+  grid-template-columns: auto 80px 1fr 2fr 100px minmax(180px, auto);
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.lista-recibos-header-acoes {
+  text-align: right;
+}
+
+.lista-recibos-itens {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lista-recibos-item {
+  display: grid;
+  grid-template-columns: auto 80px 1fr 2fr 100px minmax(180px, auto);
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 0.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-radius: 6px;
+  margin: 0 2px;
+}
+
+.lista-recibos-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: flex-end;
+}
+
+.lista-recibos-btn {
+  padding: 0.4rem 0.65rem;
+  min-height: 36px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-sm, 6px);
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.lista-recibos-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.lista-recibos-btn--ver {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.lista-recibos-btn--ver:hover:not(:disabled) {
+  background: #bfdbfe;
+}
+
+.lista-recibos-btn--pdf {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.lista-recibos-btn--pdf:hover:not(:disabled) {
+  background: #fde68a;
+}
+
+.lista-recibos-btn--excluir {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.lista-recibos-btn--excluir:hover:not(:disabled) {
+  background: #fecaca;
+}
+
+.lista-recibos-item:hover {
+  background: #f0f9ff;
+}
+
+.lista-recibos-item:last-child {
+  border-bottom: none;
+}
+
+.lista-recibos-numero {
+  font-weight: 500;
+  color: #111827;
+}
+
+.lista-recibos-valor {
+  font-weight: 500;
+  color: #059669;
+}
+
+.lista-recibos-cliente {
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.lista-recibos-data {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.lista-recibos-arrow {
+  color: #9ca3af;
+  font-size: 1.1rem;
+}
+
+.lista-recibos-fab {
+  position: fixed;
+  bottom: max(1.5rem, env(safe-area-inset-bottom));
+  right: max(1rem, env(safe-area-inset-right));
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  min-height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(13, 148, 136, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 50;
+}
+
+.lista-recibos-fab:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 22px rgba(13, 148, 136, 0.5);
+}
+
+.lista-recibos-fab:active {
+  transform: scale(0.98);
+}
+
+/* Tablet: grid mais compacto, ações em coluna */
+@media (max-width: 768px) {
+  .lista-recibos-header,
+  .lista-recibos-item {
+    grid-template-columns: auto 70px 1fr 90px minmax(140px, auto);
+  }
+  .lista-recibos-acoes {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .lista-recibos-btn {
+    min-height: 44px;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Smartphone: layout em cards – cabeçalho oculto, item empilhado (dados + ações) */
+@media (max-width: 480px) {
+  .lista-recibos-header {
+    display: none;
+  }
+
+  .lista-recibos-item {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 1rem;
+    margin: 0 0 0.75rem;
+    border: 1px solid var(--border-subtle, #e5e7eb);
+    border-radius: var(--radius-md, 8px);
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
+
+  .lista-recibos-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .lista-recibos-item .lista-recibos-checkbox {
+    align-self: flex-start;
+  }
+
+  .lista-recibos-numero {
+    font-size: 0.95rem;
+    margin-top: 0.15rem;
+  }
+
+  .lista-recibos-valor {
+    font-size: 1rem;
+    margin: 0.25rem 0;
+  }
+
+  .lista-recibos-cliente {
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin-bottom: 0.15rem;
+  }
+
+  .lista-recibos-data {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .lista-recibos-acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .lista-recibos-btn {
+    width: 100%;
+    min-height: 44px;
+    font-size: 0.9rem;
+    justify-content: center;
+  }
+}

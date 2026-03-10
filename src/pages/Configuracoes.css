@@ -1,0 +1,339 @@
+.configuracoes-page {
+  padding: 0 0 2rem;
+}
+
+.configuracoes-loading,
+.configuracoes-erro {
+  padding: 1rem;
+  color: var(--color-text-muted);
+}
+
+.configuracoes-erro {
+  color: var(--color-danger);
+  background: #fef2f2;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+}
+
+.configuracoes-sucesso {
+  padding: 0.75rem 1rem;
+  color: #065f46;
+  background: #d1fae5;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+}
+
+.configuracoes-titulo {
+  margin: 0 0 1.5rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.configuracoes-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.configuracoes-card {
+  background: var(--app-main-bg, #fff);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.configuracoes-card-titulo {
+  margin: 0 0 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.configuracoes-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.25rem;
+}
+
+.configuracoes-card-grid--assinatura {
+  grid-template-columns: 1fr;
+}
+
+.configuracoes-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.configuracoes-label--full {
+  grid-column: 1 / -1;
+}
+
+.configuracoes-input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  color: var(--color-text);
+  background: #fff;
+  min-height: var(--touch-min, 44px);
+  box-sizing: border-box;
+}
+
+.configuracoes-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.15);
+}
+
+.configuracoes-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.configuracoes-input-wrap-senha {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+.configuracoes-input-wrap-senha .configuracoes-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.configuracoes-input-wrap-senha .configuracoes-input:focus {
+  box-shadow: none;
+}
+
+.configuracoes-input-wrap-senha:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.15);
+}
+
+.configuracoes-btn-toggle-senha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.65rem;
+  min-width: 44px;
+  min-height: var(--touch-min, 44px);
+  border: none;
+  border-left: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  transition: color 0.2s, background 0.2s;
+}
+
+.configuracoes-btn-toggle-senha:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-light, #fef2f2);
+}
+
+.configuracoes-input-arquivo {
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+}
+
+.configuracoes-assinatura-preview {
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-subtle);
+  background: #fff;
+  padding: 0.75rem;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.configuracoes-assinatura-img {
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
+.configuracoes-assinatura-placeholder {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.configuracoes-assinatura-acoes {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.configuracoes-btn-assinatura-remover {
+  padding: 0.55rem 1rem;
+  min-height: var(--touch-min, 44px);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-danger);
+  background: #fef2f2;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, opacity 0.2s;
+}
+
+.configuracoes-btn-assinatura-remover:hover:not(:disabled) {
+  background: #fee2e2;
+  border-color: var(--color-danger);
+}
+
+.configuracoes-btn-assinatura-remover:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.configuracoes-senha-wrap {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.configuracoes-senha-titulo {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.configuracoes-senha-erro {
+  margin: 0 0 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-danger);
+  background: #fef2f2;
+  border-radius: var(--radius-sm);
+}
+
+.configuracoes-senha-sucesso {
+  margin: 0 0 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  color: #065f46;
+  background: #d1fae5;
+  border-radius: var(--radius-sm);
+}
+
+.configuracoes-senha-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.configuracoes-senha-form .configuracoes-label {
+  margin: 0;
+}
+
+.configuracoes-btn-senha {
+  padding: 0.55rem 1rem;
+  min-height: var(--touch-min, 44px);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  align-self: flex-start;
+}
+
+.configuracoes-btn-senha:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.configuracoes-btn-senha:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.configuracoes-acoes {
+  margin-top: 0.5rem;
+}
+
+.configuracoes-btn-salvar {
+  padding: 0.65rem 1.5rem;
+  min-height: var(--touch-min, 44px);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.05s;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+
+.configuracoes-btn-salvar:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.configuracoes-btn-salvar:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.configuracoes-btn-salvar:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+/* Responsividade: uma coluna em mobile, inputs tocáveis */
+@media (max-width: 768px) {
+  .configuracoes-card-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .configuracoes-card {
+    padding: 1.25rem;
+  }
+
+  .configuracoes-input {
+    min-height: 44px;
+  }
+
+  .configuracoes-btn-senha {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .configuracoes-btn-salvar {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .configuracoes-page {
+    padding-bottom: 1.5rem;
+  }
+
+  .configuracoes-titulo {
+    font-size: 1.2rem;
+  }
+
+  .configuracoes-card {
+    padding: 1rem;
+  }
+
+  .configuracoes-input {
+    font-size: 16px; /* evita zoom no iOS */
+  }
+}
